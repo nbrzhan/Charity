@@ -1,14 +1,17 @@
 public class Charity {
-    private String charityId;
-    private String name;
-    private Donation[] donations;
-    private int count = 0;
+
+    public Charity() {}
 
     public Charity(String charityId, String name, int sumOfDonations) {
         this.charityId = charityId;
         this.name = name;
         this.donations = new Donation[sumOfDonations];
     }
+
+    private String charityId;
+    private String name;
+    private Donation[] donations;
+    private int count = 0;
 
     public String getCharityId() {
         return charityId;
@@ -38,7 +41,7 @@ public class Charity {
     public void displayDonations() {
         System.out.println("Donations received by " + name + ":");
         for (int i = 0; i < count; i++) {
-            donations[i].displayDonationInfo();
+            donations[i].displayInfo();
         }
     }
 }

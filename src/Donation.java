@@ -2,6 +2,8 @@ public class Donation {
     private String donationId;
     private double amount;
 
+    Donation() {}
+
     public Donation(String donationId, double amount) {
 
         setDonationId(donationId);
@@ -24,7 +26,7 @@ public class Donation {
         this.amount = amount;
     }
 
-    public void displayDonationInfo() {
+    public void displayInfo() {
         System.out.println("Donation ID: " + donationId + ", Amount: " + amount);
     }
 }

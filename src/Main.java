@@ -10,12 +10,12 @@ public class Main {
         Donation donation6 = new Donation("N006", 140.0);
 
         // Create donors and add donations
-        Donor donor1 = new Donor("Yerasyl Alimbek", 3);
+        Donor donor1 = new Donor("A001", "Nurzhan ", 3);
         donor1.addDonation(donation1);
         donor1.addDonation(donation2);
         donor1.addDonation(donation3);
 
-        Donor donor2 = new Donor("Abai Qunanbaev", 4);
+        Donor donor2 = new Donor("A002","Mike TysonBaby", 4);
         donor2.addDonation(donation4);
         donor2.addDonation(donation5);
         donor2.addDonation(donation6);
@@ -32,7 +32,7 @@ public class Main {
         donor2.displayDonations();
 
         // Create a charity
-        Charity charity = new Charity("C001", "Biz Birgemiz", 5);
+        Charity charity = new Charity("C001", "Januia", 5);
 
         // Add donations to charity
         charity.addDonation(donation1);
