@@ -1,4 +1,11 @@
+import java.util.Arrays;
+import java.util.Objects;
+
 public class Charity {
+    private String charityId;
+    private String name;
+    private Donation[] donations;
+    private int count = 0;
 
     public Charity() {}
 
@@ -7,11 +14,6 @@ public class Charity {
         this.name = name;
         this.donations = new Donation[sumOfDonations];
     }
-
-    private String charityId;
-    private String name;
-    private Donation[] donations;
-    private int count = 0;
 
     public String getCharityId() {
         return charityId;
@@ -31,17 +33,27 @@ public class Charity {
 
     public void addDonation(Donation donation) {
         if (count < donations.length) {
-            donations[count] = donation;
-            count++;
+            donations[count++] = donation;
         } else {
             System.out.println("Donation list is full for charity " + name);
         }
     }
 
-    public void displayDonations() {
-        System.out.println("Donations received by " + name + ":");
-        for (int i = 0; i < count; i++) {
-            donations[i].displayInfo();
-        }
+    @Override
+    public String toString() {
+        return "Charity ID: " + charityId + ", Name: " + name + ", Donations: " + Arrays.toString(donations);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (!(obj instanceof Charity)) return false;
+        Charity other = (Charity) obj;
+        return Objects.equals(charityId, other.charityId) && Objects.equals(name, other.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(charityId, name);
     }
 }

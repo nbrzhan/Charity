@@ -1,13 +1,14 @@
+import java.util.Objects;
+
 public class Donation {
     private String donationId;
     private double amount;
 
-    Donation() {}
+    public Donation() {}
 
     public Donation(String donationId, double amount) {
-
-        setDonationId(donationId);
-        setAmount(amount);
+        this.donationId = donationId;
+        this.amount = amount;
     }
 
     public String getDonationId() {
@@ -26,7 +27,21 @@ public class Donation {
         this.amount = amount;
     }
 
-    public void displayInfo() {
-        System.out.println("Donation ID: " + donationId + ", Amount: " + amount);
+    @Override
+    public String toString() {
+        return "Donation ID: " + donationId + ", Amount: " + amount;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (!(obj instanceof Donation)) return false;
+        Donation other = (Donation) obj;
+        return Objects.equals(donationId, other.donationId) && Double.compare(amount, other.amount) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(donationId, amount);
     }
 }
